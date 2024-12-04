@@ -18,7 +18,7 @@ import re
 
 # Set our tracking server uri for logging #
 #mlflow.set_tracking_uri(uri="http://localhost:5000")
-mlflow.set_experiment(experiment_name='Final example')
+mlflow.set_experiment(experiment_name='Esempietto')
 mlflow.start_run(run_name='Planets and moons - PDF')
 run_id = mlflow.active_run().info.run_id
 mlflow.set_tag("Training Info", "Run Orca with RAG on planets and moons PDF file")
