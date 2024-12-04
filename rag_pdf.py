@@ -117,7 +117,7 @@ with open(os.path.join(dataset_path, "esempietto.json")) as f:
 
 # Carica i modelli .gguf
 models = {
-    "Orca": GPT4All(os.path.join(model_path, "orca-mini-3b-gguf2-q4_0.gguf"), allow_download=False)
+    "Orca": GPT4All(os.path.join(model_path, "Lite-Mistral-150M-v2-Instruct-Q4_0.gguf"), allow_download=False)
 }
 
 
