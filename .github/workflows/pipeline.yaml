@@ -33,3 +33,13 @@ jobs:
         run: python /mnt/c/Users/mnico/Documents/esempietto/rag_pdf.py
         env:
           MLFLOW_TRACKING_URI: ${{ env.MLFLOW_TRACKING_URI }}
+
+      - name: Build Docker image with MLflow
+        run: |
+          mlflow models build-docker \
+            --model-uri models:/GPT4All_Orca_Model/latest \
+            --name llmdocker \
+            --env-manager=local
+        env:
+          MLFLOW_TRACKING_URI: http://host.docker.internal:5000
+

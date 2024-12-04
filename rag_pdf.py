@@ -340,11 +340,11 @@ class GPT4AllPythonModel(mlflow.pyfunc.PythonModel):
 mlflow.pyfunc.log_model(
     artifact_path="gpt4all_model",
     python_model=GPT4AllPythonModel(),
-#    artifacts={
-#        "model_path": os.path.join(model_path, "orca-mini-3b-gguf2-q4_0.gguf"),
-#        "pdf_artifacts": os.path.join(dataset_path, "pdf_software_engineering"),
-#        "question_script": "question.py"
-#    },
+    artifacts={
+        "model_path": os.path.join(model_path, "Lite-Mistral-150M-v2-Instruct-Q4_0.gguf"),
+        "pdf_artifacts": os.path.join(dataset_path, "pdf_software_engineering"),
+        "question_script": "question.py"
+    },
     registered_model_name="GPT4All_Orca_Model",
     conda_env={
         "channels": ["defaults"],
