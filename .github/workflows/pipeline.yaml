@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install mlflow psycopg2 pandas langchain_community
+          pip install gpt4all numpy psycopg2 matplotlib seaborn mlflow pandas sentence-transformers pypdf langchain_community faiss-cpu
 
       # Configure MLflow tracking URI
       - name: Set MLflow tracking URI
