@@ -17,7 +17,7 @@ import pandas as pd
 import re
 
 # Set our tracking server uri for logging #
-#mlflow.set_tracking_uri(uri="http://localhost:5000")
+mlflow.set_tracking_uri(uri="http://host.docker.internal:5000")
 mlflow.set_experiment(experiment_name='Esempietto')
 mlflow.start_run(run_name='Planets and moons - PDF')
 run_id = mlflow.active_run().info.run_id
@@ -69,7 +69,7 @@ create_table()  # Creazione della tabella nel database
 # Funzione per salvare gradualmente le risposte nel database
 def save_to_db(result):
     conn = psycopg2.connect(
-        host="localhost",
+        host="host.docker.internal",
         database="esempietto",
         user="postgres",
         password="1234"
