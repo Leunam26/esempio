@@ -25,6 +25,6 @@ jobs:
 
       # Run Python script
       - name: Run Python script
-        run: python /c/Users/mnico/Documents/esempietto/rag_pdf.py
+        run: python /mnt/c/Users/mnico/Documents/esempietto/rag_pdf.py
         env:
           MLFLOW_TRACKING_URI: ${{ env.MLFLOW_TRACKING_URI }}
