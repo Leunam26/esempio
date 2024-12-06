@@ -7,7 +7,7 @@ from transformers import AutoTokenizer
 
 # Percorsi dove sono stati salvati gli artifact (modello e PDF)
 model_path = "/opt/ml/model/artifacts/Lite-Mistral-150M-v2-Instruct-Q4_0.gguf"
-pdf_folder_path = "/opt/ml/model/artifacts/pdf_software_engineering"
+pdf_folder_path = "/opt/ml/model/artifacts/filePDF"
 
 # Carica il modello GPT4All .gguf
 model = GPT4All(model_path, allow_download=False)

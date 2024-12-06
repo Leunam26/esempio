@@ -68,12 +68,7 @@ create_table()  # Creazione della tabella nel database
 
 # Funzione per salvare gradualmente le risposte nel database
 def save_to_db(result):
-    conn = psycopg2.connect(
-        host="host.docker.internal",
-        database="esempietto",
-        user="postgres",
-        password="1234"
-    )
+    conn = connect_to_db()
     cursor = conn.cursor()
 
     # Inserimento dati nel database
@@ -109,7 +104,7 @@ def create_pdf_index(pdf_folder):
     index = FAISS.from_documents(documents, embeddings)
     return index
 
-pdf_index = create_pdf_index(os.path.join(dataset_path, "pdf_software_engineering"))
+pdf_index = create_pdf_index(os.path.join(dataset_path, "filePDF"))
 
 # Caricamento delle domande dal file JSON
 with open(os.path.join(dataset_path, "esempietto.json")) as f:
@@ -342,7 +337,7 @@ mlflow.pyfunc.log_model(
     python_model=GPT4AllPythonModel(),
     artifacts={
         "model_path": os.path.join(model_path, "Lite-Mistral-150M-v2-Instruct-Q4_0.gguf"),
-        "pdf_artifacts": os.path.join(dataset_path, "pdf_software_engineering"),
+        "pdf_artifacts": os.path.join(dataset_path, "filePDF"),
         "question_script": "question.py"
     },
     registered_model_name="GPT4All_Orca_Model",
@@ -364,7 +359,8 @@ mlflow.pyfunc.log_model(
                     "transformers",
                     "pypdf",
                     "sentence-transformers",
-                    "faiss-cpu"
+                    "faiss-cpu",
+                    "langchain_community"
                 ]
             }
         ],
